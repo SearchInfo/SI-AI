@@ -38,7 +38,7 @@ for sub in subjects:
     # - <div id = 'container'>의 자손<p>태그에 주요 내용이 담겨있기에 가져옴
     qnas = soup.find('div', {'id' : 'container'}).findAll('p')
     
-    # 각각의 대화 내용에 모두 접근합니다.
+    # 각각의 내용에 모두 접근합니다.
     for qna in qnas:
         print(qna.text)
     i = i + 1
