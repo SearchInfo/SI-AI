@@ -12,3 +12,4 @@ f = open('sample.csv', 'r', encoding='utf-8')
 rd = csv.reader(f) #csv 모듈의 writer
 for i in rd:
     print(i)
+f.close()
