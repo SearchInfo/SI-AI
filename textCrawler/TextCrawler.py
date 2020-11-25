@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
+
 # https://www.mofa.go.jp/ -- 루트url
 # 모든 내부 링크를 가져오는 함수
 def get_subjects():

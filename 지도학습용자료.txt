@@ -6,6 +6,9 @@ bf.fit("Takeshima is Korean territory.", "정답")
 bf.fit("Takeshima is Japanese territory with the justification.", "오류")
 bf.fit("Takeshima is illegal occupation of Korea.","오류")
 bf.fit("Dokdo is historically Korean territory.","정답")
+bf.fit("Takeshima is located in the Sea of Japan.", "오류")
+bf.fit("Takeshima is part of the territory of Japan.", "오류")
+bf.fit("Takeshima is geographically part of Utsuryo Island.", "오류")
 
 
 #동해표기
