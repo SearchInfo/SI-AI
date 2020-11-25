@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import codecs, re
 
 
 # https://www.mofa.go.jp/ -- 루트url
@@ -27,7 +28,8 @@ print(subjects) # 내부 링크 출력
 # -------------------
 
 i = 1
-
+f = codecs.open('crawlingResultDelete().csv', 'w', encoding='utf-8')
+p = re.compile(r'[(].+?[)]')
 # 모든 내용에 접근
 for sub in subjects:
     print('(', i, '/', len(subjects), ')', sub)
@@ -41,7 +43,14 @@ for sub in subjects:
     
     # 각각의 내용에 모두 접근합니다.
     for qna in qnas:
-        print(qna.text)
+        #f.write(qna.text + '\n')
+        #()안에 들어있는 문장 삭제 후 저장
+        result = re.sub(r'[(].+?[)]', '', qna.text)
+        f.write(result + '\n')
+        
     i = i + 1
 
+#f.write(p.sub(r'[(].+?[)]', '', f))
+
+f.close()
 print('end of program')
