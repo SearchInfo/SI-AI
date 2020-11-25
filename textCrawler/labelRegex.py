@@ -14,3 +14,11 @@ f = codecs.open('label_result.txt', 'w', encoding='utf-8')
 for i in labels:
     f.write(i + '\n')
 f.close()
+
+# crawlingResult.txt를 라인별로 읽어들이기
+f = codecs.open('crawlingResult.txt', 'r', encoding='utf-8')
+print('-'*50)
+lines = f.readlines()
+for line in lines:
+    print(line)
+f.close()
