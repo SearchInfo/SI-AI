@@ -27,6 +27,7 @@ class Content:
         '''
         f = codecs.open(filename, 'w', encoding='utf-8')
         f.write(self.body + '\n')
+        f.close()
 
 # Website 클래스는 각 페이지에서 수집한 정보를 저장하는 것이 아니라, 해당 데이터를 수집하는 방법에 대한 지침을 저장합니다.
 class Website:
@@ -116,3 +117,13 @@ for link in links:
     crawler.parse(websites[0], link)
 
 # .txt파일에 있는 문장을 정규표현식으로 문장단위로 자르기 정규식 : [\w\W\s,-]+?[.]
+f = codecs.open('test.txt', 'r', encoding='utf-8')
+script = f.read()
+# 불필요한 ()내용 삭제
+test = re.sub(r'[(].+?[)]', '', script)
+f.close()
+f = codecs.open('test.txt', 'w', encoding='utf-8')
+f.write(test)
+# 정규식으로 문장별 줄넘김 -- 
+#p = re.compile(r'[\w\W\s,-]+?[.]', script)
+f.close()
