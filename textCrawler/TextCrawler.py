@@ -1,8 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
-import codecs, re
+import codecs, re, os
 
-
+os.chdir('./textClassification')
 # https://www.mofa.go.jp/ -- 루트url
 # 모든 내부 링크를 가져오는 함수
 def get_subjects():
@@ -28,7 +28,7 @@ print(subjects) # 내부 링크 출력
 # -------------------
 
 i = 1
-f = codecs.open('crawlingResultDelete().csv', 'w', encoding='utf-8')
+f = codecs.open('crawlingResultDelete().txt', 'w', encoding='utf-8')
 p = re.compile(r'[(].+?[)]')
 # 모든 내용에 접근
 for sub in subjects:
@@ -53,4 +53,8 @@ for sub in subjects:
 #f.write(p.sub(r'[(].+?[)]', '', f))
 
 f.close()
+print(os.getcwd())
+
+print(os.getcwd())
 print('end of programm')
+
