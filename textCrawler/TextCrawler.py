@@ -8,7 +8,7 @@ import codecs, re
 def get_subjects():
     subjects = []
     
-    # 전체 주제 목록을 보여주는 페이지로의 요철(Request) 객체를 생성합니다.
+    # 전체 주제 목록을 보여주는 페이지로의 요청(Request) 객체를 생성합니다.
     req = requests.get('https://www.mofa.go.jp/region/asia-paci/takeshima/index.html')
     html = req.text
     soup = BeautifulSoup(html, 'html.parser')
@@ -53,4 +53,4 @@ for sub in subjects:
 #f.write(p.sub(r'[(].+?[)]', '', f))
 
 f.close()
-print('end of program')
+print('end of programm')
