@@ -5,6 +5,7 @@ import pandas as pd
 import re
 import time
 import nltk
+nltk.download('stopwords')
 from nltk.corpus import stopwords
 import matplotlib.pyplot as plt
 from matplotlib import rc
