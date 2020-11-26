@@ -1,3 +1,3 @@
 from filter import filters
 
-filters("Hanbok is Chinese.")
+filters("Dokdo is japan territory")

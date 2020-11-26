@@ -1,15 +1,12 @@
 import math, sys
+from konlpy.tag import Okt
 import nltk
-from pprint import pprint
-import pandas as pd
-import re
-import time
-import nltk
-nltk.download('stopwords')
+#nltk.download('punkt')
+#nltk.download('averaged_perceptron_tagger')
 from nltk.corpus import stopwords
-import matplotlib.pyplot as plt
-from matplotlib import rc
-import seaborn as sns
+from nltk.tag import pos_tag
+from nltk.tokenize import word_tokenize
+
 
 class BayesianFilter:
     def __init__(self):
@@ -19,23 +16,16 @@ class BayesianFilter:
 
     # 형태소 분석하기 -- (1)
     def split(self, text):
-        
-    # 영문자 이외 문자는 공백으로 변환
-        only_english = re.sub('[^a-zA-Z]', ' ', text)
- 
-    # 소문자 변환
-        no_capitals = only_english.lower().split()
- 
-    # 불용어 제거
-        stops = set(stopwords.words('english'))
-        no_stops = [word for word in no_capitals if not word in stops]
- 
-    # 어간 추출
-        stemmer = nltk.stem.SnowballStemmer('english')
-        results = [stemmer.stem(word) for word in no_stops]
- 
-    # 공백으로 구분된 문자열로 결합하여 결과 반환
+        results =[]
+        #단어의 기본형 사용
+        x = word_tokenize(text)
+        malist = pos_tag(x)
+        for word in malist:
+            if not word[1] in ["CC", "PRP", ".", "VBP", "IN", "RB", "DT", "NN", ","]:
+                results.append(word[0])
         return results
+        
+ 
 
     # 단어와 카테고리의 출현 횟수 세기 -- (2)
     def inc_word(self, word, category):
