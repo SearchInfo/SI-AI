@@ -27,6 +27,6 @@ bf.fit("Hanbok is chinese.", "오류")
 
 def filters(text1):
 # 예측
-    pre, scorelist = bf.predict("text1")
+    pre, scorelist = bf.predict(text1)
     print("결과 =", pre)
     print(scorelist)
