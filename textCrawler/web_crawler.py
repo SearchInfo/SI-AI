@@ -135,3 +135,12 @@ f = codecs.open('target_script.txt', 'w', encoding='utf-8')
 for line in test:
     f.write(line + '\n')
 f.close()
+
+f = codecs.open('target_script.txt', 'r', encoding='utf-8')
+# 파일 라인 수 구하기 1. read함수이용
+print('read함수 : {}'.format(f.read().count('\n')+1))   # 162리턴
+# 파일 읽기 위치 첫번째 라인으로 돌아가기
+f.seek(0)
+# 파일 라인 수 구하기 2. readlines함수이용
+print('readlines함수 : {}'.format(len(f.readlines())))
+f.close()
