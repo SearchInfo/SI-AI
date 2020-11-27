@@ -122,7 +122,7 @@ for link in links:
 
 
 # .txt파일에 있는 문장을 정규표현식으로 문장단위로 자르기 정규식 : [\w\W\s,-]+?[.]
-f = codecs.open('test.txt', 'r', encoding='utf-8')
+f = codecs.open('target_script.txt', 'r', encoding='utf-8')
 script = f.read()
 # 불필요한 ()내용 삭제
 test = re.sub(r'[(].+?[)]', '', script)
@@ -130,7 +130,7 @@ test = re.sub(r'[(].+?[)]', '', script)
 test = re.findall(r'[^\s][\w\W\s,-]+?[.]', test)
 f.close()
 
-f = codecs.open('test.txt', 'w', encoding='utf-8')
+f = codecs.open('target_script.txt', 'w', encoding='utf-8')
 # test 리스트에 저장된 문장별로 줄넘김문자를 포함해 쓰기
 for line in test:
     f.write(line + '\n')
