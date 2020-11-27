@@ -3,6 +3,10 @@
 import requests
 from bs4 import BeautifulSoup
 import os, codecs, re
+
+# 저장할 폴더 위치를 상대경로로 지정
+os.chdir('./textClassification')
+
 class Content:
     '''
     글/페이지 전체에 사용할 기반 클래스
@@ -72,7 +76,7 @@ class Crawler:
             if title != '' and body != '':
                 content = Content(url, title, body)
                 content.print()
-                content.save_text('test.txt')
+                content.save_text('target_script.txt')
 
 # -----
 # 타겟 페이지의 내부링크를 리스트형으로 리턴하는 함수
@@ -116,14 +120,18 @@ for row in siteData:
 for link in links:
     crawler.parse(websites[0], link)
 
+
 # .txt파일에 있는 문장을 정규표현식으로 문장단위로 자르기 정규식 : [\w\W\s,-]+?[.]
 f = codecs.open('test.txt', 'r', encoding='utf-8')
 script = f.read()
 # 불필요한 ()내용 삭제
 test = re.sub(r'[(].+?[)]', '', script)
+# 마침표를 만나는 문장단위로 잘라 리스트형으로 저장
+test = re.findall(r'[^\s][\w\W\s,-]+?[.]', test)
 f.close()
+
 f = codecs.open('test.txt', 'w', encoding='utf-8')
-f.write(test)
-# 정규식으로 문장별 줄넘김 -- 
-#p = re.compile(r'[\w\W\s,-]+?[.]', script)
+# test 리스트에 저장된 문장별로 줄넘김문자를 포함해 쓰기
+for line in test:
+    f.write(line + '\n')
 f.close()
