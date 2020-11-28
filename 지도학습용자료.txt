@@ -19,9 +19,13 @@ bf.fit("Takeshima is geographically part of Utsuryo Island.", "오류")
 #동해표기
 #정답
 bf.fit("East Sea is the Republic of Korea.", "정답")
+bf.fit("The East Sea is the sea of ​​Korea.", "정답")
+bf.fit("The West Sea is the sea of ​​Korea", "정답")
 #오류
 bf.fit("East Sea is mainland China.", "오류")
 bf.fit("East Sea is the Sea of Japan.", "오류")
+bf.fit("East Sea is the Sea of Japan.", "오류")
+bf.fit("The East Sea is the sea of Japan.", "오류")
 
 
 #중국한국표기
@@ -36,5 +40,9 @@ bf.fit("Korea is a subordinate country to China.", "오류")
 #한국 문화
 #정답
 bf.fit("Hanbok is Korean.", "정답")
+bf.fit("Hanbok is Korean culture", "정답")
+bf.fit("BTS are Korean singers.", "정답")
 #오류
 bf.fit("Hanbok is chinese.", "오류")
+bf.fit("Hanbok is chinese culture.", "오류")
+bf.fit("BTS are chinese singers.", "오류")
