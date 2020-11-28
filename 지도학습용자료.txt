@@ -1,28 +1,40 @@
 #독도표기
-bf.fit("Takeshima is Japan.", "오류")
+
+#정답
+bf.fit("Dokdo is Korean", "정답")
 bf.fit("Dokdo is Korean territory.", "정답")
+bf.fit("Dokdo is historically Korean territory.","정답")
+bf.fit("Takeshima is historically Korean territory.","정답")
+#오류
+bf.fit("Takeshima is Japan.", "오류")
 bf.fit("Dokdo is Japan.", "오류")
-bf.fit("Takeshima is Korean territory.", "정답")
+bf.fit("Takeshima is japan territory.", "오류")
 bf.fit("Takeshima is Japanese territory with the justification.", "오류")
 bf.fit("Takeshima is illegal occupation of Korea.","오류")
-bf.fit("Dokdo is historically Korean territory.","정답")
 bf.fit("Takeshima is located in the Sea of Japan.", "오류")
 bf.fit("Takeshima is part of the territory of Japan.", "오류")
 bf.fit("Takeshima is geographically part of Utsuryo Island.", "오류")
 
 
 #동해표기
+#정답
+bf.fit("East Sea is the Republic of Korea.", "정답")
+#오류
 bf.fit("East Sea is mainland China.", "오류")
 bf.fit("East Sea is the Sea of Japan.", "오류")
-bf.fit("East Sea is the Republic of Korea.", "정답")
 
 
 #중국한국표기
-bf.fit("Korea is a subordinate country to China.", "오류")
+
+#정답
 bf.fit("Korea is not a subordinate country to China.", "정답")
+#오류
+bf.fit("Korea is a subordinate country to China.", "오류")
 
 
 
 #한국 문화
+#정답
 bf.fit("Hanbok is Korean.", "정답")
+#오류
 bf.fit("Hanbok is chinese.", "오류")
