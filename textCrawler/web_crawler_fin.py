@@ -131,7 +131,7 @@ with codecs.open('target_script_origin.txt', 'r', encoding='utf-8')as f:
     # 불필요한 내용(~~~), (â|â|â¦|â²|è¼) 삭제
     temp = re.sub(r'[(].+?[)]|(â|â|â¦|â²|è¼|ã)', '', script)
     # 정규식을 이용해 마침표를 만나는 문장단위로 잘라 리스트형으로 저장
-    temp = re.findall(r'[^\s][\w\W\s,-]+?[.][^\w]', temp)
+    temp = re.findall(r'[^\s][\w\W\s,-]+?[.]', temp)
 
 # temp에서 10자 미만의 불필요한 문자열 제거 후 target_script.txt에 쓰기
 with codecs.open('target_script.txt', 'w', encoding='utf-8') as f:
