@@ -21,7 +21,7 @@ class BayesianFilter:
         x = word_tokenize(text) # text안의 함수를 spaceㄱ단위와 구두점(punctuation)을 기준으로 토큰화 합니다.
         Wlist = pos_tag(x) # 품사를 저장합니다.
         for word in Wlist:
-            if not word[1] in ["CC", "PRP", ".", ",", "VBP", "IN", "RB", "DT", "CD", "JJR", "JJS", "MD", "UH"]: # 품사 제외 처리
+            if not word[1] in ["CC", "PRP", ".", ",", "VBP", "IN", "RB", "DT", "CD", "JJR", "JJS", "MD", "UH", " "]: # 품사 제외 처리
                 # CC : 동위 접속사, PRP : 인칭 대명사, VBP : 1인칭 동사, IN : 전치사, RB : 부사, DT : 한정사, CD : 기수, JJR : 형용사 비교급, JJS : 형용사 최상급, MD : 조동사,
                 # UH : 감탄사
                 results.append(word[0])
