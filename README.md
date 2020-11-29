@@ -31,4 +31,4 @@ python 기반의 모듈을 통해 작성하였습니다.
  * Regular Expression
  * Beautifulsoup
 
-코드에 대한 내용은 [textCrawler] (https://github.com/SearchInfo/SI-AI/tree/main/textClassification) 참조
+코드에 대한 내용은 [textCrawler] (https://github.com/SearchInfo/SI-AI/tree/main/textCrawler "web_crawler_fin.py") 참조
