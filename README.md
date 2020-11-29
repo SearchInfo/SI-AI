@@ -16,7 +16,7 @@ Web
 
 <http://searchinfo.pythonanywhere.com/>
 
-애플리케이션 코드는 [searchinfo-web](https://github.com/SearchInfo/SI-AI/tree/main/searchinfoWeb "code") 에 저장되어있습니다.
+애플리케이션 코드는 [searchinfo-web](https://github.com/SearchInfo/SI-AI/tree/main/searchinfoWeb "code") 디렉터리에 모두 저장되어있습니다.
 
 ---
 Introduce
@@ -53,7 +53,7 @@ Bayes' theorem 기반으로 카테고리화 시켜 분석하였습니다.
 
 코드에 대한 내용은
 [Classification](https://github.com/SearchInfo/SI-AI/blob/main/searchinfoWeb/ "Classification")
-bayes, bfillter 확인
+bayes, bfillter 참조
 
 ---
 Output Configuration
