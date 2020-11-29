@@ -95,7 +95,7 @@ def get_links(targetUrl, rootUrl, tagName, className):
             links = link.attrs['href']
             all_links.append(rootUrl + links)   # rootUrl과 추출한links를 더해 온전한 URL획득
     return all_links
-def webCrawler(
+
 # 내부링크를 얻을 사이트의 정보
 siteInfo = [
     'https://www.mofa.go.jp/region/asia-paci/takeshima/index.html', # targetUrl
@@ -105,15 +105,12 @@ siteInfo = [
 ]
 # 내부 링크를 리스트로 links에 할당
 links = get_links(siteInfo[0], siteInfo[1], siteInfo[2], siteInfo[3])
-print('총 ', len(links), '개의 링크를 찾았습니다.')
+print('총 ', len(links), '개의 링크를 찾았습니다..')
 
 crawler = Crawler()
 # 타이틀과 내용을 얻을 사이트의 정보
 siteData = [
-    ['Japanese Territory',      # name
-    'https://www.mofa.go.jp',   # url
-    'h2',                       # title tag
-    'div#maincol p']            # body tag
+    ['Japanese Territory', 'https://www.mofa.go.jp', 'h2', 'div#maincol p']
 ]
 # Website class 객체를 받을 리스트
 websites = []
