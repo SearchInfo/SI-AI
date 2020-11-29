@@ -14,11 +14,7 @@ def index():
     if request.method == 'POST':
         url = request.form['url']
         web_crawler_fin.webcrawler(url)
-        '''
-        with codecs.open('target_script.txt', 'r', encoding='utf-8') as f:
-            temp = f.read()
-        result = test.setResult(temp)
-        '''
+        
         result = bfilter.runFilter()
     return render_template('index.html', result = result)
 
