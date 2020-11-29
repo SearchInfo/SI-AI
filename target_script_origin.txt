@@ -1,6 +1,0 @@
-
-OCR WEB SERVICE
-SOAP and REST Cloud API
-OCRWebService.com provides a web service interfaces (SOAP and REST) which allows 
-                    you to integrate Optical Character Recognition (OCR) technology into your 
-                    software products, mobile devices or other web services
