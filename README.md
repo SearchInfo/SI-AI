@@ -41,7 +41,7 @@ python 기반의 모듈을 통해 작성하였습니다.
 
 코드에 대한 내용은 
 
-[crawler.py] (https://github.com/SearchInfo/SI-AI/blob/main/searchinfoWeb/web_crawler_fin.py,"web_crawler_fin.py")  참조
+[crawler.py](https://github.com/SearchInfo/SI-AI/blob/main/searchinfoWeb/web_crawler_fin.py, "web_crawler_fin.py")  참조
 
 ---
 Machine Learning
@@ -51,7 +51,7 @@ Bayes' theorem 기반으로 카테고리화 시켜 분석하였습니다.
 특히 bayesian recursive fillter 기법을 사용하였습니다.
 
 코드에 대한 내용은
-[bayes] (https://github.com/SearchInfo/SI-AI/blob/main/searchinfoWeb/bayes.py," Classification ")
+[bayes](https://github.com/SearchInfo/SI-AI/blob/main/searchinfoWeb/bayes.py," Classification ")
 bayes, fillter, main 확인
 
 ---
