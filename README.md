@@ -16,6 +16,7 @@ Web
 
 <http://searchinfo.pythonanywhere.com/>
 
+애플리케이션 코드는 [searchinfo-web](https://github.com/SearchInfo/SI-AI/tree/main/searchinfoWeb "code") 에 저장되어있습니다.
 
 ---
 Introduce
@@ -51,8 +52,8 @@ Bayes' theorem 기반으로 카테고리화 시켜 분석하였습니다.
 특히 bayesian recursive fillter 기법을 사용하였습니다.
 
 코드에 대한 내용은
-[Classification](https://github.com/SearchInfo/SI-AI/blob/main/searchinfoWeb/bayes.py "Classification")
-bayes, fillter, main 확인
+[Classification](https://github.com/SearchInfo/SI-AI/blob/main/searchinfoWeb/ "Classification")
+bayes, bfillter 확인
 
 ---
 Output Configuration
@@ -63,6 +64,9 @@ server가 되는 python 파일 생성 후 정적으로 바인딩하여
 fillter application for python file 들을 Import 하여 사용합니다.
 
 Pythonanywhere 무료 호스팅 API를 사용하여 웹을 구현하였습니다.
+
+back-end 에 대한 구현은
+[server](https://github.com/SearchInfo/SI-AI/blob/main/searchinfoWeb/flask_app.py "server") 에 구현되어 있습니다.
 
 ---
 except
