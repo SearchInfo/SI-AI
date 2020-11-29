@@ -17,3 +17,4 @@ for i in range(total_lines): # 전체 라인 읽기위해 total_lines를 카운�
     line = f.readline() # f르 한줄씩 읽음
     filters(line)   # 읽은 line을 필터링
     print(line)     # 읽은 line을 출력
+filters("Dokdo is japan territory")

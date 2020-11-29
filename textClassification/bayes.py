@@ -55,7 +55,11 @@ class BayesianFilter:
 
     # 단어 리스트에 점수 매기기
     def score(self, words, category):
-        score = math.log(self.category_prob(category)) #
+        # 예시 : words(['Dokdo', 'korea']), category('정답')
+        # 점수(확률) : (1) + (2)
+        score = math.log(self.category_prob(category)) # (1)전체 카테고리에 대한 해당 카테고리의 비율 category_d 사용
+
+        # (2) 해당 카테고리 내에서 words 각각의 단어들에 대한 비율
         for word in words:
             score += math.log(self.word_prob(word, category)) #스코어에 로그취하면서 더해준다
         return score
@@ -71,20 +75,22 @@ class BayesianFilter:
     def category_prob(self, category):
         sum_category = sum(self.category_d.values()) # 카테고리_d의 모든 값의 합
         category_v = self.category_d[category] # 카테고리 추출
-        return category_v / sum_category
+        result = category_v / sum_category
+        return result
 
     # 카테고리 내부의 단어 출현 비율 계산
     def word_prob(self, word, category):
-        c = self.get_word_count(word, category) + 1  # 로그함수로인한 +1 로그0나오지 않게
+        c = self.get_word_count(word, category) + 1  # 가중치, 로그함수로인한 +1 로그0나오지 않게
         d = sum(self.word_d[category].values()) + len(self.words) # word_dict의 모든 values의 합 + words의 수
         return c / d
 
     # 예측하기
-    def predict(self, text):
-        b_category = None
+    def predict(self, text): # text : 가져올 문장
+        b_category = None # 정답인지 오류인지 모름
+        score_list = [] # 점수 정보를 저장하고 있는 리스트
         max_score = -sys.maxsize # 가장 작은수 대입
-        words = self.split(text) #text split
-        score_list = []
+        words = self.split(text) # text split
+        
         for category in self.category_d.keys(): # 카테고리 리스트 추출
             score = self.score(words, category) # 스코어 함수로인한 계산
             score_list.append((category, score))
