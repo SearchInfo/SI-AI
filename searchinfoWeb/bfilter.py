@@ -47,7 +47,6 @@ def filters(text1):
 
 
 
-
 # os.chdir('./mysite')
 def runFilter():
     f = codecs.open('target_script.txt', 'r', encoding='utf-8')
