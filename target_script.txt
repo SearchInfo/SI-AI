@@ -1,0 +1,3 @@
+OCR WEB SERVICE
+SOAP and REST Cloud API
+OCRWebService.

@@ -50,7 +50,7 @@ Bayes' theorem 기반으로 카테고리화 시켜 분석하였습니다.
 특히 bayesian recursive fillter 기법을 사용하였습니다.
 
 코드에 대한 내용은
-[github](https://github.com/SearchInfo/SI-AI/tree/main/textClassification, " Classification ")
+[github](https://github.com/SearchInfo/SI-AI/tree/main/textClassification , " Classification ")
 bayes, fillter, main 확인
 
 ---
