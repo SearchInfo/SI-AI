@@ -145,3 +145,4 @@ def webcrawler(url):
                 f.write(line + '\n')
 # url = 'http://www.ocrwebservice.com/'
 # webcrawler(url)
+
