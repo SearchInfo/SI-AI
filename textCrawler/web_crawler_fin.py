@@ -1,14 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 import os, codecs, re
-
-# 저장할 폴더 위치를 상대경로로 지정
-os.chdir('./textClassification')
-
-# target_script_origin.txt파일이 존재한다면 삭제
-if os.path.isfile('target_script_origin.txt'):
-	os.remove('target_script_origin.txt')
-
 # ----- class Content -----
 class Content:
     '''
@@ -96,6 +88,13 @@ def get_links(targetUrl, rootUrl, tagName, className):
             all_links.append(rootUrl + links)   # rootUrl과 추출한links를 더해 온전한 URL획득
     return all_links
 
+# 저장할 폴더 위치를 상대경로로 지정
+os.chdir('./textClassification')
+
+# target_script_origin.txt파일이 존재한다면 삭제
+if os.path.isfile('target_script_origin.txt'):
+	os.remove('target_script_origin.txt')
+
 # 내부링크를 얻을 사이트의 정보
 siteInfo = [
     'https://www.mofa.go.jp/region/asia-paci/takeshima/index.html', # targetUrl
@@ -105,12 +104,15 @@ siteInfo = [
 ]
 # 내부 링크를 리스트로 links에 할당
 links = get_links(siteInfo[0], siteInfo[1], siteInfo[2], siteInfo[3])
-print('총 ', len(links), '개의 링크를 찾았습니다..')
+print('총 ', len(links), '개의 링크를 찾았습니다.')
 
 crawler = Crawler()
 # 타이틀과 내용을 얻을 사이트의 정보
 siteData = [
-    ['Japanese Territory', 'https://www.mofa.go.jp', 'h2', 'div#maincol p']
+    ['Japanese Territory',      # name
+    'https://www.mofa.go.jp',   # url
+    'h2',                       # title tag
+    'div#maincol p']            # body tag
 ]
 # Website class 객체를 받을 리스트
 websites = []
