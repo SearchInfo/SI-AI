@@ -34,7 +34,7 @@ class BayesianFilter:
         if not category in self.word_d: # 카테고리 없을시 생성
             self.word_d[category] = {}
         if not word in self.word_d[category]: #카테고리안에 단어 없을시 생성
-            self.word_d[category][word] = 0
+            self.word_d[category][word] = 0 #초기화
 
         self.word_d[category][word] += 1 # category안에 word 삽입 +1
         self.words.add(word) # words 세트안에 word를 add
@@ -45,11 +45,16 @@ class BayesianFilter:
             self.category_d[category] = 0 # category_d 초기화
         self.category_d[category] += 1 # 카테고리 + 1
 
+    # words에 문장의 단어, word_d에 정답과 오류들의 단어들+1(단어들이 몇번나왔는지), category_d에 정답과 오류의 +1
+
+
+
+
     # 텍스트 학습 시작
     def fit(self, text, category): #매개변수 text, category
         # 텍스트 학습
         word_list = self.split(text) # split을 통해 대입
-        for word in word_list: # 형태소 리스트
+        for word in word_list: # 형태소 리스트 반복
             self.increase_word(word, category) # word에 대한 category분류
         self.increase_category(category) # 카테고리 분류
 
@@ -67,14 +72,14 @@ class BayesianFilter:
     # 카테고리 내부의 단어 출현 횟수 구하기
     def get_word_count(self, word, category):
         if word in self.word_d[category]:
-            return self.word_d[category][word] # 카테고리안의 word값
+            return self.word_d[category][word] # 카테고리안의 word의 밸류값
         else:
             return 0
 
     # 카테고리 계산 - 해당 카테고리/전체 카테고리
     def category_prob(self, category):
         sum_category = sum(self.category_d.values()) # 카테고리_d의 모든 값의 합
-        category_v = self.category_d[category] # 카테고리 추출
+        category_v = self.category_d[category] # 하나의 카테고리 값
         result = category_v / sum_category
         return result
 
@@ -89,10 +94,11 @@ class BayesianFilter:
         b_category = None # 정답인지 오류인지 모름
         score_list = [] # 점수 정보를 저장하고 있는 리스트
         max_score = -sys.maxsize # 가장 작은수 대입
-        words = self.split(text) # text split
+        words = self.split(text) # text split 문장대입
         
-        for category in self.category_d.keys(): # 카테고리 리스트 추출
-            score = self.score(words, category) # 스코어 함수로인한 계산
+        for category in self.category_d.keys(): # 카테고리 리스트 추출 딕셔너리 내부의 키만큼 반복
+            score = self.score(words, category) # 스코어 함수로인한 계산- 2개 출력(정답과 오류)
+            # 정답과 오류의 로그를 10^2로 풀면 정답률과 오류율이 나옴
             score_list.append((category, score))
             if score > max_score: # 큰숫자 찾기
                 max_score = score
