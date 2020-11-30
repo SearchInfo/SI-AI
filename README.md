@@ -1,7 +1,7 @@
 # SI-AI
 
 1. Introduce
-2. Crawlier
+2. Crawler
    - python module
 3. Machine Learning
    - Bayesian recursive fillter
