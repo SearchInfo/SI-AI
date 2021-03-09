@@ -1,10 +1,10 @@
 from filter import filters
 import csv, os, codecs
-#filters("Dokdo is japan territory")
+filters("Dokdo is japan territory")
 
 
-# filters("Hanbok is Chinese.")
-
+filters("Hanbok is Chinese.")
+filters("Korea is not a subordinate country to China.")
 
 
 

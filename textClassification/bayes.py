@@ -62,11 +62,11 @@ class BayesianFilter:
     def score(self, words, category):
         # 예시 : words(['Dokdo', 'korea']), category('정답')
         # 점수(확률) : (1) + (2)
-        score = math.log(self.category_prob(category)) # (1)전체 카테고리에 대한 해당 카테고리의 비율 category_d 사용
+        score = self.category_prob(category) # (1)전체 카테고리에 대한 해당 카테고리의 비율 category_d 사용
 
         # (2) 해당 카테고리 내에서 words 각각의 단어들에 대한 비율
         for word in words:
-            score += math.log(self.word_prob(word, category)) #스코어에 로그취하면서 더해준다
+            score += self.word_prob(word, category) #스코어에 로그취하면서 더해준다
         return score
 
     # 카테고리 내부의 단어 출현 횟수 구하기
@@ -104,3 +104,5 @@ class BayesianFilter:
                 max_score = score
                 b_category = category
         return b_category, score_list
+
+
