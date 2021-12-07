@@ -12,7 +12,7 @@ if os.path.isfile('target_script_origin.txt'):
 # ----- class Content -----
 class Content:
     '''
-    글/페이지 전체에 사용할 기반 클래스
+    #글/페이지 전체에 사용할 기반 클래스
     '''
     def __init__(self, url, title, body):
         self.url = url
