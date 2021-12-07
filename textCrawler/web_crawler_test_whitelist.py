@@ -18,6 +18,7 @@ class Content:
         self.url = url
         self.title = title
         self.body = body
+	
     def print(self):
         '''
         #출력 결과를 원하는 대로 바꿀 수 있는 함수
@@ -25,6 +26,7 @@ class Content:
         print('URL: {}'.format(self.url))
         print('TITLE: {}'.format(self.title))
         print('BODY: {}'.format(self.body))
+	
     def save_text(self, filename):
         '''
         #결과를 target_script.txt파일로 저장하는 함수
@@ -57,6 +59,7 @@ class Crawler:
         except requests.exceptions.RequestException:
             return None
         return BeautifulSoup(req.text, 'html.parser')
+
     def safeGet(self, pageObj, selector):
         '''
         #BeautifulSoup객체와 선택자를 받아 콘텐츠 문자열을 추출하는 함수
@@ -66,6 +69,7 @@ class Crawler:
         if selectedElems is not None and len(selectedElems) > 0:
             return '\n'.join([elem.get_text() for elem in selectedElems])
         return ''
+
     def parse(self, site, url):
         '''
         #URL을 받아 콘텐츠를 추출합니다.
