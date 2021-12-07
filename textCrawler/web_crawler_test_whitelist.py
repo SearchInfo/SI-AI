@@ -20,14 +20,14 @@ class Content:
         self.body = body
     def print(self):
         '''
-        출력 결과를 원하는 대로 바꿀 수 있는 함수
+        #출력 결과를 원하는 대로 바꿀 수 있는 함수
         '''
         print('URL: {}'.format(self.url))
         print('TITLE: {}'.format(self.title))
         print('BODY: {}'.format(self.body))
     def save_text(self, filename):
         '''
-        결과를 target_script.txt파일로 저장하는 함수
+        #결과를 target_script.txt파일로 저장하는 함수
         '''
         if not os.path.isfile(filename):
             with codecs.open(filename, 'w', encoding='utf-8') as f:
@@ -40,7 +40,7 @@ class Content:
 # ----- class Website -----
 class Website:
     '''
-    웹사이트 구조에 관한 정보를 저장할 클래스
+    #웹사이트 구조에 관한 정보를 저장할 클래스
     '''
     def __init__(self, name, url, titleTag, bodyTag):
         self.name = name
@@ -59,8 +59,8 @@ class Crawler:
         return BeautifulSoup(req.text, 'html.parser')
     def safeGet(self, pageObj, selector):
         '''
-        BeautifulSoup객체와 선택자를 받아 콘텐츠 문자열을 추출하는 함수
-        주어진 선택자로 검색된 결과가 없다면 빈 문자열을 반환합니다.
+        #BeautifulSoup객체와 선택자를 받아 콘텐츠 문자열을 추출하는 함수
+        #주어진 선택자로 검색된 결과가 없다면 빈 문자열을 반환합니다.
         '''
         selectedElems = pageObj.select(selector)
         if selectedElems is not None and len(selectedElems) > 0:
@@ -68,7 +68,7 @@ class Crawler:
         return ''
     def parse(self, site, url):
         '''
-        URL을 받아 콘텐츠를 추출합니다.
+        #URL을 받아 콘텐츠를 추출합니다.
         '''
         bs = self.getPage(url)
         if bs is not None:
@@ -83,7 +83,7 @@ class Crawler:
 # 타겟 페이지의 내부링크를 리스트형으로 리턴하는 함수
 def get_links(targetUrl, rootUrl, tagName, className):
     '''
-    타겟 페이지의 내부링크를 리스트형으로 리턴하는 함수
+    #타겟 페이지의 내부링크를 리스트형으로 리턴하는 함수
     '''
     all_links = []  # 내부 링크를 받을 리스트
 
